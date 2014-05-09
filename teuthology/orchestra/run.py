@@ -129,7 +129,7 @@ def copy_to_log(f, logger, host, loglevel=logging.INFO):
     """
     # i can't seem to get fudge to fake an iterable, so using this old
     # api for now
-    for line in f:
+    for line in f.xreadlines():
         line = line.rstrip()
         logger.log(loglevel, '[' + host + ']: ' + line)
 

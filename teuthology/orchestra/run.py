@@ -330,7 +330,7 @@ def run(
     if stderr is not PIPE:
         if stderr is None:
             stderr = logger.getChild('err')
-        g_err = gevent.spawn(copy_file_to, r.stderr, stderr, name)
+        g_err = gevent.spawn(copy_file_to, r.stderr, stderr, host)
         r.stderr = stderr
     else:
         assert not wait, \
@@ -340,7 +340,7 @@ def run(
     if stdout is not PIPE:
         if stdout is None:
             stdout = logger.getChild('out')
-        g_out = gevent.spawn(copy_file_to, r.stdout, stdout, name)
+        g_out = gevent.spawn(copy_file_to, r.stdout, stdout, host)
         r.stdout = stdout
     else:
         assert not wait, \
@@ -373,7 +373,7 @@ def run(
                 raise CommandCrashedError(command=r.command)
             if status != 0:
                 raise CommandFailedError(
-                    command=r.command, exitstatus=status, node=name)
+                    command=r.command, exitstatus=status, node=host)
         return status
 
     if wait:

@@ -425,6 +425,8 @@ def syslog(ctx, config):
     """
     start syslog / stop syslog on exit.
     """
+    yield
+    return
     if ctx.archive is None:
         # disable this whole feature if we're not going to archive the data anyway
         yield

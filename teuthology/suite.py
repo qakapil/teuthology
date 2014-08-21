@@ -246,7 +246,7 @@ def prepare_and_schedule(job_config, suite_repo_path, base_yaml_paths, limit,
     schedule_suite(). Finally, schedules a "last-in-suite" job that sends an
     email to the specified address (if one is configured).
     """
-    arch = get_arch(job_config.machine_type)
+    arch = 'x86_64'#get_arch(job_config.machine_type)
 
     base_args = [
         os.path.join(os.path.dirname(sys.argv[0]), 'teuthology-schedule'),

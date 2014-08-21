@@ -418,13 +418,18 @@ def try_push_job_info(job_config, extra_info=None):
     :param extra_info: Optional second dict to push
     """
     log = init_logging()
-
+    log.debug("job_config is  %s", str(job_config))
     if job_config.get('job_id') is None:
+        #job_config['name'] = 'kapil_new_test'
+        #job_config['job_id'] = '333333'
         log.warning('No job_id found; not reporting results')
+        #log.warning('Created dummy job-id and job-name')
         return
 
     run_name = job_config['name']
     job_id = job_config['job_id']
+    log.debug("run_name is  %s", run_name)
+    log.debug("job_id is %s", job_id)
 
     if extra_info is not None:
         job_info = extra_info.copy()

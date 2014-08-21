@@ -1072,12 +1072,18 @@ def get_system_type(remote, distro=False, version=False):
         return system_value.lower()
     if system_value in ['Ubuntu', 'Debian']:
         return "deb"
+<<<<<<< HEAD
     if system_value in ['CentOS', 'Fedora', 'RedHatEnterpriseServer',
                         'openSUSE project', 'SUSE LINUX']:
         return "rpm"
     if version:
         return version
     return system_value
+=======
+    if system_value in ['CentOS', 'Fedora', 'SUSE LINUX',
+            'openSUSE project', 'RedHatEnterpriseServer']:
+        return "rpm"
+>>>>>>> cdf65af9389f475cba9d2a44c83f9d9d4045e489
 
 
 def get_distro(ctx):
